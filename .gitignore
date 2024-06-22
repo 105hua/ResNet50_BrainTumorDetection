@@ -1,0 +1,10 @@
+# Directories.
+.huggingface/
+MRI-Images-of-Brain-Tumor/
+venv/
+
+# Files within the "graphs" directory, but not the directory itself.
+graphs/*
+
+# Files with the .pth extension.
+*.pth
