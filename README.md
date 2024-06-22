@@ -26,6 +26,8 @@ people survive malignant tumours for 1 year or more and more than 15% of people 
 for 5 years or more. As a result of this, it is extremely important that the symptoms of
 Brain Tumours are recognised and diagnosed as soon as possible.
 
+### Moving into Training
+
 The project aims to achieve this goal through training the ResNet50 architecture on an
 Image Dataset of MRI Scans, depicting four different classes:
 
@@ -50,24 +52,30 @@ Hugging Face, which you may access for yourself by visiting
 The dataset may also be cloned by running the `download_dataset.bat` script 
 on a Windows System, providing that you have Git installed.
 
-## Results
+## Training
 
-The configuration that has been used to train this model is as follows:
+As mentioned in the Preface within the Introduction section, the ResNet50 model structure
+has been used for this project. The model was trained with a batch size of 32 over 40
+epochs, using the SGD Optimizer and the CrossEntropyLoss function. The training segment
+of the dataset used contains 3,760 images.
 
-- **Batch Size:** 32
-- **Weights:** None
-- **Loss Function:** Cross Entropy
-- **Optimizer:** SGD *(Learning Rate: 0.001 & Momentum: 0.9)*
-- **Epochs:** 40
+## Evaluation
 
-With the use of this configuration, I was able to achieve some excellent results in the
-evaluation process:
+The evaluation of the model took place using the test segment of the dataset, which
+contains 538 images. The validation segment of the dataset was not used at any stage, as
+none of the steps taken necessitated its use. With these images, the model returned a 97%
+accuracy, with an average loss of 0.14, which I believe to be an excellent result. In
+addition to this, the F1 Score of the model is 0.978, rounded to 3 decimal places, which is
+also a very good result. The final metric that is taken to evaluate the Model is the Mean
+Squared Error, which is returned as 0.048, rounded to 3 decimal places.
 
-- **Accuracy:** 97%
-- **Average Loss:** 0.13
-- **F1 Score:** 0.977
+Following the calculation of the evaluation metrics explained in the previous paragraph,
+a confusion matrix is then plotted, which can be seen below with my weight:
 
-I plan to add more in-depth evaluations to my scripts at some stages in the future.
+<img src="https://i.ibb.co/hBYpCZg/confusion-matrix.png" />
+
+As you can see, the model makes very few incorrect decisions, with the large majority of
+predicted labels matching the true label.
 
 ## References
 

@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
 from torchvision.models import resnet50
-from sklearn.metrics import f1_score, confusion_matrix, ConfusionMatrixDisplay
+from sklearn.metrics import f1_score, confusion_matrix, ConfusionMatrixDisplay, mean_squared_error
 
 # Get file name of weights.
 weight_file_name = input("Enter the filename of the model: ")
@@ -27,8 +27,8 @@ loss_fn = torch.nn.CrossEntropyLoss()
 model.eval()
 
 # Load the testing dataset.
-valid_ds = datasets.ImageFolder(root="./MRI-Images-of-Brain-Tumor/timri/valid", transform=transform)
-valid_loader = DataLoader(valid_ds, batch_size=32, shuffle=True)
+test_ds = datasets.ImageFolder(root="./MRI-Images-of-Brain-Tumor/timri/test", transform=transform)
+test_loader = DataLoader(test_ds, batch_size=32, shuffle=True)
 
 # Define the variables to keep track of the total loss and the number of correct predictions.
 correct = 0
@@ -37,7 +37,7 @@ total_loss = 0
 
 # Evaluate the model on the test dataset.
 with torch.no_grad():
-    for data in valid_loader:
+    for data in test_loader:
         images, labels = data[0].to(device), data[1].to(device)  # Move the input data to the GPU
         outputs = model(images)
         _, predicted = torch.max(outputs.data, 1)
@@ -50,11 +50,7 @@ with torch.no_grad():
 
 # Print the accuracy and the average loss.
 print('Accuracy of the network on the test images: %d %%' % (100 * correct / total))
-print('Average loss: %.2f' % (total_loss / len(valid_loader)))
-
-# Load the test dataset.
-test_ds = datasets.ImageFolder(root="./MRI-Images-of-Brain-Tumor/timri/test", transform=transform)
-test_loader = DataLoader(test_ds, batch_size=32, shuffle=True)
+print('Average loss: %.2f' % (total_loss / len(test_loader)))
 
 # Define true and prediction label arrays.
 true_labels = []
@@ -72,6 +68,10 @@ for data in test_loader:
 # Calculate F1 Score.
 f1 = f1_score(true_labels, pred_labels, average='macro')
 print("F1 Score:", f1)
+
+# Mean Squared Error
+mse = mean_squared_error(true_labels, pred_labels)
+print("Mean Squared Error:", mse)
 
 # Calculate confusion matrix.
 matrix = confusion_matrix(true_labels, pred_labels)
