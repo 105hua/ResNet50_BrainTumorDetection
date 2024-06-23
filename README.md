@@ -57,7 +57,7 @@ on a Windows System, providing that you have Git installed.
 As mentioned in the Preface within the Introduction section, the ResNet50 model structure
 has been used for this project. The model was trained with a batch size of 32 over 40
 epochs, using the SGD Optimizer and the CrossEntropyLoss function. The training segment
-of the dataset used contains 3,760 images.
+of the dataset used contains 3,760 images, using an image resolution of 224x224.
 
 ## Evaluation
 
