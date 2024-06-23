@@ -15,7 +15,7 @@ transform = transforms.Compose([
     transforms.ToTensor()
 ])
 
-train_ds = datasets.ImageFolder(root="./MRI-Images-of-Brain-Tumor/timri/train", transform=transform)
+train_ds = datasets.ImageFolder(root="./timri/train", transform=transform)
 train_loader = DataLoader(train_ds, batch_size=32, shuffle=True)
 
 model = resnet50(weights=None)

@@ -1,4 +1,5 @@
 import torch
+import os
 import matplotlib.pyplot as plt
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
@@ -27,7 +28,7 @@ loss_fn = torch.nn.CrossEntropyLoss()
 model.eval()
 
 # Load the testing dataset.
-test_ds = datasets.ImageFolder(root="./MRI-Images-of-Brain-Tumor/timri/test", transform=transform)
+test_ds = datasets.ImageFolder(root="./timri/test", transform=transform)
 test_loader = DataLoader(test_ds, batch_size=32, shuffle=True)
 
 # Define the variables to keep track of the total loss and the number of correct predictions.
@@ -78,4 +79,5 @@ matrix = confusion_matrix(true_labels, pred_labels)
 matrix_display = ConfusionMatrixDisplay(matrix)
 matrix_display.plot()
 plt.title("Confusion Matrix of the Brain Tumor Detection Model")
+os.makedirs("./graphs", exist_ok=True) # Create the directory if it doesn't exist.
 plt.savefig("./graphs/confusion_matrix.png")
