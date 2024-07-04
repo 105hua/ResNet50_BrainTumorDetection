@@ -77,6 +77,34 @@ a confusion matrix is then plotted, which can be seen below with my weight:
 As you can see, the model makes very few incorrect decisions, with the large majority of
 predicted labels matching the true label.
 
+## How to Setup
+
+If you'd like to use this project in any means, please follow the guidance below on how
+to set the project up.
+
+### Prerequisites
+
+- Python 3.11 or above (This project was developed specifically on version 3.11.9)
+- Git
+
+### Steps
+
+- Create a Virtual Environment for the project by running `python -m venv venv`.
+- Activate the environment through running `venv\Scripts\activate`. If you are running a
+Linux Machine, you may run `source venv/bin/activate`.
+- Install PyTorch by following [this link](https://pytorch.org/get-started/locally/).
+- Install the rest of the dependencies through running `pip install -r requirements.txt`.
+- To download the dataset, please run `py download_dataset.py`. If you encounter any
+errors with this script, try running `py alternative_download_dataset.py` to download
+the dataset through Git.
+- Once the dataset has been obtained, you may train the model by running `py train.py`.
+Feel free to experiment with the variables inside of the script.
+- If you'd like to evaluate the weights you have trained, you may run
+`py evaluate.py`.
+
+This setup guide may be modified in the future to include steps for setting up inferencing
+via Gradio.
+
 ## References
 
 Cancer Research UK. (2023). Survival for brain and spinal cord tumours. [Online]. Cancer Research UK. Last Updated: 16 June 2023. Available at: https://www.cancerresearchuk.org/about-cancer/brain-tumours/survival [Accessed 18 June 2024].
