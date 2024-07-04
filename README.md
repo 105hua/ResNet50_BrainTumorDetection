@@ -77,6 +77,10 @@ a confusion matrix is then plotted, which can be seen below with my weight:
 As you can see, the model makes very few incorrect decisions, with the large majority of
 predicted labels matching the true label.
 
+## How to Setup
+
+If you'd like to experiment with this project in any way, 
+
 ## References
 
 Cancer Research UK. (2023). Survival for brain and spinal cord tumours. [Online]. Cancer Research UK. Last Updated: 16 June 2023. Available at: https://www.cancerresearchuk.org/about-cancer/brain-tumours/survival [Accessed 18 June 2024].

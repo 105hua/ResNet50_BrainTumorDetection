@@ -3,6 +3,10 @@
 timri/
 venv/
 graphs/
+MRI-Images-of-Brain-Tumor/
 
 # Files with the .pth extension.
 *.pth
+
+# Update packages script
+update_packages.py

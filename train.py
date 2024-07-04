@@ -27,7 +27,7 @@ num_of_epochs = 40
 
 for epoch in range(num_of_epochs):
     running_loss = 0.0
-    for i, data in enumerate(tqdm(train_loader, desc=f"Epoch {epoch + 1}/{num_of_epochs}", unit="batch")):
+    for _, data in enumerate(tqdm(train_loader, desc=f"Epoch {epoch + 1}/{num_of_epochs}", unit="batch")):
         inputs, labels = data
         inputs, labels = inputs.to(device), labels.to(device)
         optimizer.zero_grad()
