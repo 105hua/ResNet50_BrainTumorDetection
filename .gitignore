@@ -13,3 +13,6 @@ update_packages.py
 
 # Any .jpg files
 *.jpg
+
+# Any .safetensors files
+*.safetensors
