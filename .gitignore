@@ -11,4 +11,5 @@ MRI-Images-of-Brain-Tumor/
 # Update packages script
 update_packages.py
 
+# Any .jpg files
 *.jpg

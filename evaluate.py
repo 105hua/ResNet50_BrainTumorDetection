@@ -5,6 +5,7 @@ from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
 from torchvision.models import resnet50
 from sklearn.metrics import f1_score, confusion_matrix, ConfusionMatrixDisplay, mean_squared_error
+from safetensors.torch import load_model
 
 # Get file name of weights.
 weight_file_name = input("Enter the filename of the model: ")
@@ -17,7 +18,7 @@ transform = transforms.Compose([
 
 # Create the model and load the weights.
 model = resnet50(weights=None)
-model.load_state_dict(torch.load(weight_file_name))
+load_model(model, weight_file_name)
 
 # Define the device based on whether the GPU is available or not. Then, move the model to the device.
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')

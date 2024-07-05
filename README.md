@@ -93,7 +93,8 @@ to set the project up.
 - Activate the environment through running `venv\Scripts\activate`. If you are running a
 Linux Machine, you may run `source venv/bin/activate`.
 - Install PyTorch by following [this link](https://pytorch.org/get-started/locally/).
-- Install the rest of the dependencies through running `pip install -r requirements.txt`.
+- Install the rest of the dependencies by running
+`pip3 install tqdm safetensors matplotlib scikit-learn huggingface_hub gradio`
 - To download the dataset, please run `py download_dataset.py`. If you encounter any
 errors with this script, try running `py alternative_download_dataset.py` to download
 the dataset through Git.
@@ -101,9 +102,7 @@ the dataset through Git.
 Feel free to experiment with the variables inside of the script.
 - If you'd like to evaluate the weights you have trained, you may run
 `py evaluate.py`.
-
-This setup guide may be modified in the future to include steps for setting up inferencing
-via Gradio.
+- If you'd like to run the Inference Interface, you may run `py gradio.py`.
 
 ## References
 
