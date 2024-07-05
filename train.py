@@ -6,6 +6,7 @@ from tqdm import tqdm
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
 from torchvision.models import resnet50
+from safetensors.torch import save_model
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print('Using device:', device)
@@ -16,14 +17,14 @@ transform = transforms.Compose([
 ])
 
 train_ds = datasets.ImageFolder(root="./timri/train", transform=transform)
-train_loader = DataLoader(train_ds, batch_size=32, shuffle=True)
+train_loader = DataLoader(train_ds, batch_size=8, shuffle=True)
 
 model = resnet50(weights=None)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
 model.to(device)
 
-num_of_epochs = 40
+num_of_epochs = 5 # 40
 
 for epoch in range(num_of_epochs):
     running_loss = 0.0
@@ -41,5 +42,5 @@ for epoch in range(num_of_epochs):
 print("Finished Training!")
 
 print("Saving model...")
-torch.save(model.state_dict(), f"sgd_{num_of_epochs}e.pth")
+save_model(model, "weights.safetensors")
 print("Model saved as model.pth")

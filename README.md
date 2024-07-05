@@ -63,19 +63,23 @@ of the dataset used contains 3,760 images, using an image resolution of 224x224.
 
 The evaluation of the model took place using the test segment of the dataset, which
 contains 538 images. The validation segment of the dataset was not used at any stage, as
-none of the steps taken necessitated its use. With these images, the model returned a 97%
-accuracy, with an average loss of 0.14, which I believe to be an excellent result. In
-addition to this, the F1 Score of the model is 0.978, rounded to 3 decimal places, which is
+none of the steps taken necessitated its use. With these images, the model returned a 93%
+accuracy, with an average loss of 0.24, which I believe to be an excellent result. In
+addition to this, the F1 Score of the model is 0.926, rounded to 3 decimal places, which is
 also a very good result. The final metric that is taken to evaluate the Model is the Mean
-Squared Error, which is returned as 0.048, rounded to 3 decimal places.
+Squared Error, which is returned as 0.152, rounded to 3 decimal places.
 
 Following the calculation of the evaluation metrics explained in the previous paragraph,
 a confusion matrix is then plotted, which can be seen below with my weight:
 
-<img src="https://i.ibb.co/hBYpCZg/confusion-matrix.png" />
+<img src="https://i.ibb.co/yVvKMx5/confusion-matrix.png" />
 
 As you can see, the model makes very few incorrect decisions, with the large majority of
 predicted labels matching the true label.
+
+**NOTE:** The accuracy has dropped since a few modifications were made to the source code
+of this repository. I will be conducting experiments on the model to bring it back to its
+original accuracy.
 
 ## How to Setup
 
@@ -93,7 +97,8 @@ to set the project up.
 - Activate the environment through running `venv\Scripts\activate`. If you are running a
 Linux Machine, you may run `source venv/bin/activate`.
 - Install PyTorch by following [this link](https://pytorch.org/get-started/locally/).
-- Install the rest of the dependencies through running `pip install -r requirements.txt`.
+- Install the rest of the dependencies by running
+`pip3 install tqdm safetensors matplotlib scikit-learn huggingface_hub gradio`
 - To download the dataset, please run `py download_dataset.py`. If you encounter any
 errors with this script, try running `py alternative_download_dataset.py` to download
 the dataset through Git.
@@ -101,9 +106,7 @@ the dataset through Git.
 Feel free to experiment with the variables inside of the script.
 - If you'd like to evaluate the weights you have trained, you may run
 `py evaluate.py`.
-
-This setup guide may be modified in the future to include steps for setting up inferencing
-via Gradio.
+- If you'd like to run the Inference Interface, you may run `py gradio.py`.
 
 ## References
 
