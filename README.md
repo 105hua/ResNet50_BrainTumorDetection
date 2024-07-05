@@ -63,11 +63,11 @@ of the dataset used contains 3,760 images, using an image resolution of 224x224.
 
 The evaluation of the model took place using the test segment of the dataset, which
 contains 538 images. The validation segment of the dataset was not used at any stage, as
-none of the steps taken necessitated its use. With these images, the model returned a 97%
-accuracy, with an average loss of 0.14, which I believe to be an excellent result. In
-addition to this, the F1 Score of the model is 0.978, rounded to 3 decimal places, which is
+none of the steps taken necessitated its use. With these images, the model returned a 93%
+accuracy, with an average loss of 0.24, which I believe to be an excellent result. In
+addition to this, the F1 Score of the model is 0.926, rounded to 3 decimal places, which is
 also a very good result. The final metric that is taken to evaluate the Model is the Mean
-Squared Error, which is returned as 0.048, rounded to 3 decimal places.
+Squared Error, which is returned as 0.152, rounded to 3 decimal places.
 
 Following the calculation of the evaluation metrics explained in the previous paragraph,
 a confusion matrix is then plotted, which can be seen below with my weight:
