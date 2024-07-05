@@ -8,7 +8,7 @@ from sklearn.metrics import f1_score, confusion_matrix, ConfusionMatrixDisplay, 
 from safetensors.torch import load_model
 
 # Get file name of weights.
-weight_file_name = input("Enter the filename of the model: ")
+weight_file_name = input("Enter the filename of the safetensors file: ")
 
 # Create transformer.
 transform = transforms.Compose([

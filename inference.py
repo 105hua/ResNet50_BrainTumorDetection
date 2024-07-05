@@ -7,9 +7,12 @@ from torchvision import transforms
 from torchvision.models import resnet50
 
 model = resnet50(weights=None)
+
+weight_file_name = input("Enter the filename of the safetensors file: ")
+
 model.load_state_dict(
     torch.load(
-        os.path.join(os.getcwd(), "weights.pth")
+        os.path.join(os.getcwd(), weight_file_name)
     )
 )
 

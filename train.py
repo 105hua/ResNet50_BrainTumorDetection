@@ -42,5 +42,5 @@ for epoch in range(num_of_epochs):
 print("Finished Training!")
 
 print("Saving model...")
-save_model(model, "model.safetensors")
+save_model(model, "weights.safetensors")
 print("Model saved as model.pth")
