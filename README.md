@@ -72,10 +72,14 @@ Squared Error, which is returned as 0.152, rounded to 3 decimal places.
 Following the calculation of the evaluation metrics explained in the previous paragraph,
 a confusion matrix is then plotted, which can be seen below with my weight:
 
-<img src="https://i.ibb.co/hBYpCZg/confusion-matrix.png" />
+<img src="https://i.ibb.co/yVvKMx5/confusion-matrix.png" />
 
 As you can see, the model makes very few incorrect decisions, with the large majority of
 predicted labels matching the true label.
+
+**NOTE:** The accuracy has dropped since a few modifications were made to the source code
+of this repository. I will be conducting experiments on the model to bring it back to its
+original accuracy.
 
 ## How to Setup
 
